@@ -15,4 +15,5 @@ const BlogPost = sequelize.define('BlogPost', {
         allowNull: false
     }
 });
+
 module.exports = BlogPost;
