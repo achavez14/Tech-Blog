@@ -16,7 +16,7 @@ Tech Blog is a CMS-style blog platform where developers can publish articles, bl
 - [Acknowledgements](#acknowledgements)
 
 ## Features
-- Users can sign up, log in and log out to access blof features
+- Users can sign up, log in and log out to access blog features
 - Users can create, read, update and delete blog posts
 - Users can comment on blog posts
 - Users can update their account profile
