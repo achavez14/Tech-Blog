@@ -3,9 +3,23 @@
     "bcrypt": "^5.1.1",
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
     "pg": "^8.11.5",
     "sequelize": "^6.37.2"
-  }
+  },
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "Tech Blog is a CMS-style blog platform where developers can publish articles, blog entries and interact with the community. The application adheres to the Model-View-Controller (MVC) paradigm in its architectural structure using Handlebars.js as the templating language, Sequelize as the ORM for database interaction and the express-session npm package for authentication.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "install": "npm install",
+    "build": "cd public && npm run build",
+    "seed": "cd seeds && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -1,18 +1,23 @@
-const express = require('express');
-const path = require('path');
 const dotenv = require('dotenv');
-const sequelize = require('./config/database'); // Assuming Sequelize is set up in a separate file
-
 dotenv.config();
+const express = require('express');
+const exphbs = require('express-handlebars');
+const path = require('path');
+const sequelize = require('./config/connection');
 
 const app = express();
+
+const hbs = exphbs.create({});
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api/users', require('./routes/users')); // Example route for user management
+app.use('/', require('./controllers'));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send('Something broke!');
+    res.status(500).send('Internal Server Error');
 });
 
 // Start the server

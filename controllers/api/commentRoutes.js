@@ -1,4 +1,5 @@
-const Comment = require('../models/Comment');
+const router = require('express').Router();
+const Comment = require('../../models/Comment');
 
 const commentController = {
     addComment: async (req, res) => {
@@ -29,4 +30,7 @@ const commentController = {
     }
 };
 
-module.exports = commentController;
+router.post('/', commentController.addComment);
+router.delete('/:commentId', commentController.deleteComment);
+
+module.exports = router;

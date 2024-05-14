@@ -1,4 +1,5 @@
-const User = require('../models/User');
+const router = require('express').Router();
+const User = require('../../models/User');
 
 const userController = {
     loginUser: async (req, res) => {
@@ -39,4 +40,8 @@ const userController = {
     }
 };
 
-module.exports = userController
+router.post('/login', userController.loginUser);
+router.post('/signup', userController.signupUser);
+router.get('/logout', userController.logoutUser);
+
+module.exports = router

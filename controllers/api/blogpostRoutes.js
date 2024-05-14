@@ -1,4 +1,5 @@
-const BlogPost = require('../models/BlogPost');
+const router = require('express').Router();
+const BlogPost = require('../../models/BlogPost');
 
 const blogPostController = {
     createPost: async (req, res) => {
@@ -22,4 +23,8 @@ const blogPostController = {
     }
 };
 
-module.exports = blogPostController;
+router.post('/', blogPostController.createPost);
+router.put('/:blogPostId', blogPostController.updatePost);
+router.delete('/:blogPostId', blogPostController.deletePost);
+
+module.exports = router;

@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Include your CSS file here -->
 </head>
 <body>
-    <h1>Welcome to the Homepage</h1>
-    <p>This is the homepage content.</p>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <h1>Welcome to the Tech Blog</h1>
+    <p>Explore the latest tech articles and share your thoughts!</p>
+
+    <!-- Display existing blog posts here (use Handlebars templating) -->
+    {{#each blogPosts}}
+        <div class="blog-post">
+            <h2>{{ this.title }}</h2>
+            <p>{{ this.content }}</p>
+            <p>Posted by {{ this.author }} on {{ this.date }}</p>
+        </div>
+    {{/each}}
+
     <a href="/login">Login</a>
 </body>
 </html>
