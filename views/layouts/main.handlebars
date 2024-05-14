@@ -11,12 +11,14 @@
         <h1>
             Welcome to the Tech Blog
         </h1>
-        {{#if logged_in}}
         <nav>
-            <a href="/dashboard">Dashboard</a>
-            <button class="btn" id="logout">Logout</button>
+            {{#unless logged_in}}
+                <a href="/login">Login</a>
+            {{else}}
+                <a href="/dashboard">Dashboard</a>
+                <button class="btn" id="logout">Logout</button>
+            {{/unless}}
         </nav>
-        {{/if}}
     </header>
     <main class="container container-fluid mt-5">
         {{{ body }}}
@@ -26,7 +28,7 @@
     </footer>
 
     {{#if logged_in}}
-    <script src="/js/logout.js"></script>
+        <script src="/js/logout.js"></script>
     {{/if}}
 </body>
 </html>

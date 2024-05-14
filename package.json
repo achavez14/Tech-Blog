@@ -16,8 +16,8 @@
   "scripts": {
     "start": "node server.js",
     "install": "npm install",
-    "build": "cd public && npm run build",
-    "seed": "cd seeds && node index.js"
+    "build": "npm run build",
+    "seed": "node seeds/seed.js"
   },
   "keywords": [],
   "author": "",

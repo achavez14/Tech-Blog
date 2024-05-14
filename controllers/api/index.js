@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 
 // Import and use the API route files
 const commentRoutes = require('./commentRoutes');

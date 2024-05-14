@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const User = require('../../models/User');
+const { User } = require('../../models');
 
 const userController = {
     loginUser: async (req, res) => {
         const { email, password } = req.body;
+
+        console.log('Logging in user:', email);
+
         try {
             // Find user by email
             const user = await User.findOne({ where: { email } });
@@ -24,6 +27,9 @@ const userController = {
 
     signupUser: async (req, res) => {
         const { username, email, password } = req.body;
+
+        console.log('Signing up user:', username, email);
+
         try {
             // Create a new user
             const newUser = await User.create({ username, email, password });
@@ -35,8 +41,17 @@ const userController = {
     },
 
     logoutUser: async (req, res) => {
-        // Logic to handle user logout
-        return res.status(200).json({ message: 'User logged out successfully' });
+        console.log('Logging out user');
+
+        try {
+            // Clear the user's session by removing the userId
+            req.session.userId = null;
+
+            return res.status(200).json({ message: 'User logged out successfully' });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ message: 'Server error' });
+        }
     }
 };
 
