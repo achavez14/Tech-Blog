@@ -5,7 +5,10 @@ Tech Blog is a CMS-style blog platform where developers can publish articles, bl
 
 ## Screenshots of My Application
 
+- ![Screenshot_1](./client/src/images/Screenshot_(1).png)
+
 ## Link to Deployed Application
+https://tech-blog-3jjl.onrender.com
 
 ## Table of Contents
 - [Features](#features)
